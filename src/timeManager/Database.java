@@ -63,7 +63,7 @@ public Database(String login, String password,String email) {
 private void removeActivity(String activityName) {
 	try {			
 		Class.forName("com.mysql.jdbc.Driver"); 
-		Connection con=DriverManager.getConnection("jdbc:mysql://sql2.freemysqlhosting.net:3306/sql2333529", "sql2333529", "jR8%pU1*");;
+		Connection con=DriverManager.getConnection("jdbc:mysql://sql2.freemysqlhosting.net:3306/user", "root", "root");;
 				String query = "delete from timeManagerProject where activityName = ?";		
 				PreparedStatement preparedStmt = con.prepareStatement(query);
 			    preparedStmt.setString (1, activityName);
@@ -78,7 +78,7 @@ private void allActivities(){
 	
 	try {
 		Class.forName("com.mysql.jdbc.Driver");  
-		Connection con=DriverManager.getConnection("jdbc:mysql://sql2.freemysqlhosting.net:3306/sql2333529", "sql2333529", "jR8%pU1*");
+		Connection con=DriverManager.getConnection("jdbc:mysql://sql2.freemysqlhosting.net:3306/user", "root", "root");
 		Statement stmt=con.createStatement();
 		String sql = "Select * from timeManagerProject Where login='" + login + "'";
 		ResultSet rs=stmt.executeQuery(sql);
@@ -121,7 +121,7 @@ private void setValuesInDatabase(String activityName, String activityDescription
 	String deadline = dateFormat.format(date);
 		
 	Class.forName("com.mysql.jdbc.Driver"); 
-	Connection con=DriverManager.getConnection("jdbc:mysql://sql2.freemysqlhosting.net:3306/sql2333529", "sql2333529", "jR8%pU1*");
+	Connection con=DriverManager.getConnection("jdbc:mysql://sql2.freemysqlhosting.net:3306/user", "root", "root");
 			String query = " insert into timeManagerProject (activityName, activityDescription, deadline, login, password)" + " values (?, ?, ?, ?, ?)";		
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 		    preparedStmt.setString (1, activityName);
@@ -140,7 +140,7 @@ private void setValuesInDatabase(String activityName, String activityDescription
 private void setUserAccount(String email) {
 	try {
 		Class.forName("com.mysql.jdbc.Driver"); 
-		Connection con=DriverManager.getConnection("jdbc:mysql://sql2.freemysqlhosting.net:3306/sql2333529", "sql2333529", "jR8%pU1*");
+		Connection con=DriverManager.getConnection("jdbc:mysql://sql2.freemysqlhosting.net:3306/user", "root", "root");
 				String query = " insert into timeManagerProject (login, password, email)" + " values (?, ?, ?)";		
 				PreparedStatement preparedStmt = con.prepareStatement(query);
 			    preparedStmt.setString (1, login);
@@ -156,7 +156,7 @@ private void setUserAccount(String email) {
 private void checkLogin() {
 	try {
 		Class.forName("com.mysql.jdbc.Driver");  
-		Connection con=DriverManager.getConnection("jdbc:mysql://sql2.freemysqlhosting.net:3306/sql2333529", "sql2333529", "jR8%pU1*");
+		Connection con=DriverManager.getConnection("jdbc:mysql://sql2.freemysqlhosting.net:3306/user", "root", "root");
 		Statement stmt=con.createStatement();
 		String sql = "Select * from timeManagerProject Where login='" + login + "'";
 		ResultSet rs=stmt.executeQuery(sql);
@@ -180,7 +180,7 @@ public boolean getOriginalLogin() {
 private void originalName(String activityName) {
 	try {
 		Class.forName("com.mysql.jdbc.Driver");  
-		Connection con=DriverManager.getConnection("jdbc:mysql://sql2.freemysqlhosting.net:3306/sql2333529", "sql2333529", "jR8%pU1*");
+		Connection con=DriverManager.getConnection("jdbc:mysql://sql2.freemysqlhosting.net:3306/user", "root", "root");
 		Statement stmt=con.createStatement();
 		String sql = "Select * from timeManagerProject Where activityName='" + activityName + "' and login='" + login + "'";
 		ResultSet rs=stmt.executeQuery(sql);
@@ -205,7 +205,7 @@ public boolean getOriginalName() {
 private void loginCheck() {
 	try {
 		Class.forName("com.mysql.jdbc.Driver");  
-		Connection con=DriverManager.getConnection("jdbc:mysql://sql2.freemysqlhosting.net:3306/sql2333529", "sql2333529", "jR8%pU1*");
+		Connection con=DriverManager.getConnection("jdbc:mysql://sql2.freemysqlhosting.net:3306/user", "root", "root");
 		Statement stmt=con.createStatement();
 		String sql = "Select * from timeManagerProject Where login='" + login + "' and password='" + password + "'";
 		ResultSet rs=stmt.executeQuery(sql);
